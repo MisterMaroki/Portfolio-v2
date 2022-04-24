@@ -7,26 +7,31 @@
 
 	padding: 1rem 2rem;
 	background: rgba(255, 255, 255, 0.25);
+	// box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 	backdrop-filter: blur(4px);
 	-webkit-backdrop-filter: blur(4px);
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	position: fixed;
 	z-index: 2;
 }
+
 .app__navbar-logo {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 
 	img {
-		width: 190px;
-		filter: invert(2) hue-rotate(40deg);
+		// width: 160px;
+		height: 60px;
+		filter: hue-rotate(40deg) invert(1);
 
 		@media screen and (min-width: 2000px) {
-			width: 300px;
+			width: 180px;
+			height: 40px;
 		}
 	}
 }
+
 .app__navbar-links {
 	flex: 1;
 	display: flex;
@@ -40,8 +45,6 @@
 		cursor: pointer;
 
 		flex-direction: column;
-
-		transition: all 0.3s ease-in-out;
 
 		div {
 			width: 5px;
@@ -66,6 +69,7 @@
 				color: var(--secondary-color);
 			}
 		}
+
 		&:hover {
 			div {
 				background: var(--secondary-color);
@@ -112,18 +116,18 @@
 		align-items: flex-end;
 		flex-direction: column;
 
-		background: url(../../assets/bgWhite.png);
+		background: url('../../assets/bgWhite.png');
 		background-color: var(--white-color);
 		background-size: cover;
 		background-repeat: repeat;
 
-		box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
+		/* top box shadow */
+		box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
 
 		svg {
 			width: 35px;
 			height: 35px;
 			color: var(--secondary-color);
-
 			margin: 0.5rem 1rem;
 		}
 

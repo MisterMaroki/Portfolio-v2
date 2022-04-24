@@ -1,7 +1,15 @@
 import React from 'react';
+
+import images from '../images';
 import './Navbar.scss';
 const Navbar = () => {
-	return <h1>Navbar</h1>;
+	return (
+		<nav>
+			<div>
+				<img src={images.logo} alt="logo" />
+			</div>
+		</nav>
+	);
 };
 
 export default Navbar;

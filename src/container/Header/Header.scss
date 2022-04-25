@@ -64,6 +64,7 @@
 		border-radius: 15px;
 		flex-direction: row;
 		width: auto;
+		background: whitesmoke;
 
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	}
@@ -176,7 +177,10 @@
 		z-index: 1;
 
 		@media screen and (min-width: 900px) {
-			// transform: translateY(500px);
+			transform: scale(1.6);
+		}
+
+		@media screen and (min-width: 1000px) {
 			transform: scale(1.4);
 		}
 	}

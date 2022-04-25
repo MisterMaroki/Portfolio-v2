@@ -54,6 +54,13 @@ const Header = () => {
 					src={images.circle}
 					alt="profile_circle"
 				/>
+				<motion.img
+					whileInView={{ scale: [0, 1] }}
+					transition={{ duration: 0.4, ease: 'easeInOut' }}
+					className="overlay_circle hover-bg"
+					src={images.volcano}
+					alt="profile_circle_bg"
+				/>
 			</motion.div>
 			<motion.div
 				variant={scaleVariants}

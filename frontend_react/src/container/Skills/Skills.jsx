@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import ReactTooltip from 'react-tooltip';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import './Skills.scss';
-import ReactTooltip from 'react-tooltip';
 
 const Skills = () => {
-	const [experience, setExperience] = useState([]);
+	const [experiences, setExperiences] = useState([]);
 	const [skills, setSkills] = useState([]);
 
 	useEffect(() => {
-		const query = '*[_type=="experiences"]';
+		const query = '*[_type == "experiences"]';
 		const skillsQuery = '*[_type == "skills"]';
 
 		client.fetch(query).then((data) => {
-			setExperience(data);
+			setExperiences(data);
 		});
+
 		client.fetch(skillsQuery).then((data) => {
 			setSkills(data);
 		});
@@ -24,11 +25,11 @@ const Skills = () => {
 
 	return (
 		<>
-			<h2 className="head-text">Skills & Experience</h2>
+			<h2 className="head-text">Skills & Experiences</h2>
 
 			<div className="app__skills-container">
 				<motion.div className="app__skills-list">
-					{skills?.map((skill) => (
+					{skills.map((skill) => (
 						<motion.div
 							whileInView={{ opacity: [0, 1] }}
 							transition={{ duration: 0.5 }}
@@ -45,20 +46,25 @@ const Skills = () => {
 						</motion.div>
 					))}
 				</motion.div>
-
-				<motion.div className="app__skills-exp">
-					{experience.map((experience) => (
-						<motion.div className="app__skills-exp-item" key={experience.year}>
+				<div className="app__skills-exp">
+					{experiences.map((experience) => (
+						<motion.div
+							className="app__skills-exp-item"
+							key={`${experience.year}-${Math.random()}`}
+						>
 							<div className="app__skills-exp-year">
 								<p className="bold-text">{experience.year}</p>
 							</div>
-							<motion.div className="app__skills-exp-works">
+							<motion.div
+								className="app__skills-exp-works"
+								key={`${experience.year}-${Math.random()}`}
+							>
 								{experience.works.map((work) => (
 									<>
 										<motion.div
 											whileInView={{ opacity: [0, 1] }}
 											transition={{ duration: 0.5 }}
-											className="app__skills-exp-work app__flex"
+											className="app__skills-exp-work"
 											data-tip
 											data-for={work.name}
 											key={work.name}
@@ -71,6 +77,7 @@ const Skills = () => {
 											effect="solid"
 											arrowColor="#fff"
 											className="skills-tooltip"
+											key={work.desc}
 										>
 											{work.desc}
 										</ReactTooltip>
@@ -79,7 +86,7 @@ const Skills = () => {
 							</motion.div>
 						</motion.div>
 					))}
-				</motion.div>
+				</div>
 			</div>
 		</>
 	);

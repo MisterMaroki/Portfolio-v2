@@ -19,7 +19,6 @@ const Testimonial = () => {
 		const brandsQuery = '*[_type == "brands"]';
 
 		client.fetch(query).then((data) => {
-			console.log(data);
 			setTestimonials(data);
 		});
 		client.fetch(brandsQuery).then((data) => {
@@ -33,7 +32,7 @@ const Testimonial = () => {
 		<>
 			{testimonials.length && (
 				<>
-					<div className="app__testimonial-item app__flex">
+					<div id="testimonials" className="app__testimonial-item app__flex">
 						<img src={urlFor(test.imgUrl)} alt="testimonial" />
 						<div className="app__testimonial-content">
 							<p className="p-text">{test.feedback}</p>
@@ -71,7 +70,7 @@ const Testimonial = () => {
 					</div>
 				</>
 			)}
-			<div className="app__testimonials-brands app__flex">
+			<div className="app__testimonial-brands app__flex">
 				{brands.map((brand) => (
 					<motion.div
 						whileInView={{ opacity: [0, 1] }}

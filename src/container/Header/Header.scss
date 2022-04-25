@@ -56,6 +56,7 @@
 	justify-content: flex-end;
 	align-items: flex-end;
 	flex-direction: column;
+	transform: translateX(-20px);
 
 	.badge-cmp,
 	.tag-cmp {
@@ -67,6 +68,9 @@
 		background: whitesmoke;
 
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	}
+	.badge-cmp {
+		transform: translateX(-20px);
 	}
 	.tag-cmp {
 		flex-direction: column;
@@ -133,8 +137,8 @@
 
 	@media screen and (min-width: 2000px) {
 		div:nth-child(1) {
-			width: 200px;
-			height: 200px;
+			width: 100px;
+			height: 100px;
 		}
 
 		div:nth-child(2) {

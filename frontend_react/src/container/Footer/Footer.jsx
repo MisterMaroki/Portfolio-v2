@@ -38,7 +38,6 @@ const Footer = () => {
 				setIsFormSubmitted(true);
 			})
 			.catch((err) => {
-				console.log(loading);
 				console.log(err);
 			});
 	};

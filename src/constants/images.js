@@ -28,6 +28,7 @@ import profile from '../assets/profile.png';
 import circle from '../assets/circle.svg';
 import logo from '../assets/logo.png';
 import volcano from '../assets/volcanoes_mt_batur.png';
+import volcano1 from '../assets/batur_.png';
 
 import adidas from '../assets/adidas.png';
 import amazon from '../assets/amazon.png';
@@ -72,4 +73,5 @@ export default {
 	skype,
 	spotify,
 	volcano,
+	volcano1,
 };

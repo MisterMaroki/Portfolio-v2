@@ -5,7 +5,7 @@
 
 .app__whitebg {
 	background-color: var(--white-color);
-	scroll-snap-align: start;
+	// scroll-snap-align: start;
 }
 
 .app__primarybg {
@@ -13,7 +13,7 @@
 }
 
 .app__container {
-	scroll-snap-align: start;
+	// scroll-snap-align: center;
 
 	width: 100%;
 	min-height: 100vh;

@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import AnimakitExpander from 'animakit-expander';
 
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -13,6 +19,7 @@ const Footer = () => {
 	});
 	const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [somethingToSay, setSomethingToSay] = useState(false);
 
 	const { username, email, message } = formData;
 
@@ -41,6 +48,12 @@ const Footer = () => {
 				console.log(err);
 			});
 	};
+
+	const toggleSomethingToSay = (e) => {
+		console.log(e.target.value);
+		setSomethingToSay(e.target.value);
+	};
+	console.log(somethingToSay);
 
 	return (
 		<>
@@ -84,7 +97,23 @@ const Footer = () => {
 							onChange={handleChangeInput}
 						/>
 					</div>
-					<div>
+					<FormControl style={{ padding: '1rem 0 0 1rem' }}>
+						<FormLabel id="got-something-else-to-say">
+							Got something more to say?
+						</FormLabel>
+						<RadioGroup
+							row
+							value={somethingToSay}
+							onChange={toggleSomethingToSay}
+							aria-labelledby="got-something-else-to-say"
+							name="row-radio-buttons-group"
+						>
+							<FormControlLabel value={true} control={<Radio />} label="Yes" />
+							<FormControlLabel value={false} control={<Radio />} label="No" />
+						</RadioGroup>
+					</FormControl>
+
+					<AnimakitExpander expanded={somethingToSay === 'true' ? true : false}>
 						<textarea
 							className="p-text"
 							placeholder="Your Message"
@@ -92,7 +121,8 @@ const Footer = () => {
 							name="message"
 							onChange={handleChangeInput}
 						/>
-					</div>
+					</AnimakitExpander>
+
 					<button type="button" className="p-text" onClick={handleSubmit}>
 						{!loading ? 'Send Message' : 'Sending...'}
 					</button>

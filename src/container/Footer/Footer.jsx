@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -10,6 +10,7 @@ import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../client';
 import './Footer.scss';
+import ReactiveButton from 'reactive-button';
 
 const Footer = () => {
 	const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ const Footer = () => {
 	});
 	const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [buttonState, setButtonState] = useState('idle');
 	const [somethingToSay, setSomethingToSay] = useState(false);
 
 	const { username, email, message } = formData;
@@ -26,6 +28,14 @@ const Footer = () => {
 	const handleChangeInput = (e) => {
 		const { name, value } = e.target;
 		setFormData({ ...formData, [name]: value });
+	};
+
+	const onClickHandler = () => {
+		setButtonState('loading');
+		setTimeout(() => {
+			handleSubmit();
+			setButtonState('success');
+		}, 1000);
 	};
 
 	const handleSubmit = () => {
@@ -58,7 +68,7 @@ const Footer = () => {
 	return (
 		<>
 			{!isFormSubmitted && (
-				<h2 className="head-text">Take a coffee & chat with me</h2>
+				<h2 className="head-text">Grab a coffee & chat with me</h2>
 			)}
 
 			<div className="app__footer-cards">
@@ -123,9 +133,26 @@ const Footer = () => {
 						/>
 					</AnimakitExpander>
 
-					<button type="button" className="p-text" onClick={handleSubmit}>
+					{/* <button type="button" className="p-text" onClick={handleSubmit}>
 						{!loading ? 'Send Message' : 'Sending...'}
-					</button>
+					</button> */}
+					<ReactiveButton
+						// className="p-text"
+						onClick={onClickHandler}
+						buttonState={buttonState}
+						idleText={'Send Message'}
+						loadingText={'Sending...'}
+						successText={'Success'}
+						errorText={'Error'}
+						type={'button'}
+						className={'p-text'}
+						style={{ borderRadius: '10px', padding: '1rem 2rem ' }}
+						outline={false}
+						shadow={true}
+						rounded={false}
+						size={'small'}
+						animation={true}
+					/>
 				</div>
 			) : (
 				<div>

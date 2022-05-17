@@ -56,7 +56,6 @@
 	justify-content: flex-end;
 	align-items: flex-end;
 	flex-direction: column;
-	transform: translateX(-20px);
 
 	.badge-cmp,
 	.tag-cmp {
@@ -87,7 +86,7 @@
 		font-size: 2.5rem;
 
 		@media screen and (min-width: 2000px) {
-			font-size: 5rem;
+			font-size: 4rem;
 		}
 	}
 

@@ -27,8 +27,9 @@ import about04 from '../assets/about04.png';
 import profile from '../assets/profile.png';
 import circle from '../assets/circle.svg';
 import logo from '../assets/logo.svg';
+import logo192 from '../assets/logo192.png';
 import volcano from '../assets/volcanoes_mt_batur.png';
-import volcano1 from '../assets/batur_.png';
+import volcano1 from '../assets/batur_.webp';
 
 import adidas from '../assets/adidas.png';
 import amazon from '../assets/amazon.png';
@@ -43,6 +44,7 @@ export default {
 	mobile,
 	api,
 	cpp,
+	logo192,
 	css,
 	figma,
 	flutter,

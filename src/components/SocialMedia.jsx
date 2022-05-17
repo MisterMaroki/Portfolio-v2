@@ -11,7 +11,7 @@ const SocialMedia = () => {
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<IconButton variant="outlined">
+				<IconButton>
 					<GitHubIcon />
 				</IconButton>
 			</a>

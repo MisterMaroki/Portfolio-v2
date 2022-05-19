@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import { Tooltip } from '@mui/material';
 import React from 'react';
+import { capitalize } from '../utils/capitalize';
 
 const NavigationDots = ({ active }) => {
 	return (
@@ -8,7 +9,7 @@ const NavigationDots = ({ active }) => {
 			{['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map(
 				(item, index) => (
 					// eslint-disable-next-line jsx-a11y/anchor-has-content
-					<Tooltip title={item.toUpperCase()} placement="left">
+					<Tooltip title={capitalize(item)} placement="left">
 						<a
 							href={`#${item}`}
 							key={item + index}

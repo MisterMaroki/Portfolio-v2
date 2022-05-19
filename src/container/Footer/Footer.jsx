@@ -40,10 +40,10 @@ const Footer = () => {
 	const toggleMoreToSay = (e) => {
 		if (e.target.value.length > 15) {
 			setMoreToSay('true');
-			setTimeout(focusInput, 10);
+			setTimeout(focusInput, 100);
 		} else {
 			setMoreToSay('false');
-			setTimeout(focusInput, 10);
+			setTimeout(focusInput, 100);
 		}
 	};
 

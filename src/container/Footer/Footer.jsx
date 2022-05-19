@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -21,20 +21,41 @@ const Footer = () => {
 	const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [buttonState, setButtonState] = useState('idle');
-	const [somethingToSay, setSomethingToSay] = useState(false);
+	const [moreToSay, setMoreToSay] = useState(false);
+
+	const inputElement = useRef(null);
+
+	const focusInput = () => {
+		inputElement.current.focus();
+	};
 
 	const { username, email, message } = formData;
 
 	const handleChangeInput = (e) => {
 		const { name, value } = e.target;
 		setFormData({ ...formData, [name]: value });
+		name === 'message' && toggleMoreToSay(e);
+	};
+
+	const toggleMoreToSay = (e) => {
+		if (e.target.value.length > 15) {
+			setMoreToSay('true');
+			setTimeout(focusInput, 10);
+		} else {
+			setMoreToSay('false');
+			setTimeout(focusInput, 10);
+		}
 	};
 
 	const onClickHandler = () => {
 		setButtonState('loading');
 		setTimeout(() => {
-			handleSubmit();
-			setButtonState('success');
+			if (!formData.username || !formData.email) {
+				setButtonState('error');
+			} else {
+				handleSubmit();
+				setButtonState('success');
+			}
 		}, 1000);
 	};
 
@@ -58,12 +79,6 @@ const Footer = () => {
 				console.log(err);
 			});
 	};
-
-	const toggleSomethingToSay = (e) => {
-		console.log(e.target.value);
-		setSomethingToSay(e.target.value);
-	};
-	console.log(somethingToSay);
 
 	return (
 		<>
@@ -107,35 +122,57 @@ const Footer = () => {
 							onChange={handleChangeInput}
 						/>
 					</div>
-					<FormControl style={{ padding: '1rem 0 0 1rem' }}>
+					<div>
+						{moreToSay !== 'true' && (
+							<input
+								className="p-text"
+								placeholder="Your Message"
+								value={message}
+								name="message"
+								onChange={handleChangeInput}
+								ref={inputElement}
+								onFocus={(e) =>
+									e.currentTarget.setSelectionRange(
+										e.currentTarget.value.length,
+										e.currentTarget.value.length
+									)
+								}
+							/>
+						)}
+					</div>
+					{/* <FormControl style={{ padding: '1rem 0 0 1rem' }}>
 						<FormLabel id="got-something-else-to-say">
-							Got something more to say?
+							Got more to say?
 						</FormLabel>
 						<RadioGroup
 							row
-							value={somethingToSay}
-							onChange={toggleSomethingToSay}
+							value={MoreToSay}
+							onChange={toggleMoreToSay}
 							aria-labelledby="got-something-else-to-say"
 							name="row-radio-buttons-group"
 						>
 							<FormControlLabel value={true} control={<Radio />} label="Yes" />
 							<FormControlLabel value={false} control={<Radio />} label="No" />
 						</RadioGroup>
-					</FormControl>
+					</FormControl> */}
 
-					<AnimakitExpander expanded={somethingToSay === 'true' ? true : false}>
+					<AnimakitExpander expanded={moreToSay === 'true' ? true : false}>
 						<textarea
 							className="p-text"
 							placeholder="Your Message"
 							value={message}
 							name="message"
 							onChange={handleChangeInput}
+							ref={inputElement}
+							onFocus={(e) =>
+								e.currentTarget.setSelectionRange(
+									e.currentTarget.value.length,
+									e.currentTarget.value.length
+								)
+							}
 						/>
 					</AnimakitExpander>
 
-					{/* <button type="button" className="p-text" onClick={handleSubmit}>
-						{!loading ? 'Send Message' : 'Sending...'}
-					</button> */}
 					<ReactiveButton
 						// className="p-text"
 						onClick={onClickHandler}

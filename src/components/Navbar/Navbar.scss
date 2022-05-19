@@ -120,7 +120,8 @@
 		background-repeat: repeat;
 
 		/* top box shadow */
-		box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
+		box-shadow: 0px 0px 100px rgba(168, 168, 168, 0.8);
+		transition: transform 0.3s ease-in;
 
 		svg {
 			width: 35px;
@@ -151,7 +152,7 @@
 					text-transform: uppercase;
 					font-weight: 500;
 
-					transition: all 0.3s ease-in-out;
+					// transition: all 0.3s ease-in-out;
 
 					&:hover {
 						color: var(--secondary-color);
@@ -168,4 +169,11 @@
 	@media screen and (min-width: 900px) {
 		display: none;
 	}
+}
+div#open {
+	transform: translateX(0px) !important;
+}
+
+div#closed {
+	transform: translateX(100vw) !important;
 }

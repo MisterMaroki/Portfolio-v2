@@ -4,6 +4,10 @@ import React from 'react';
 import { capitalize } from '../utils/capitalize';
 
 const NavigationDots = ({ active }) => {
+	console.log(
+		'🚀 ~ file: NavigationDots.jsx ~ line 7 ~ NavigationDots ~ active',
+		active
+	);
 	return (
 		<div className="app__navigation">
 			{['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map(
@@ -14,9 +18,8 @@ const NavigationDots = ({ active }) => {
 							href={`#${item}`}
 							key={item + index}
 							className={`app__navigation-dot ${
-								active === item && 'active-dot'
+								active === item ? 'active-dot' : 'inactive-dot'
 							}`}
-							style={active === item ? { backgroundColor: '#313bac' } : {}}
 						/>
 					</Tooltip>
 				)

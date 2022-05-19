@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { NavigationDots, SocialMedia } from '../components';
-import useOnScreen from './useOnScreen';
+import useOnScreen from '../utils/useOnScreen';
 const AppWrap = (Component, idName, classNames) =>
 	function HOC() {
 		const ref = useRef();

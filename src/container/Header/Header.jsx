@@ -6,6 +6,7 @@ import { AppWrap } from '../../wrapper';
 
 import { images } from '../../constants';
 import './Header.scss';
+import TypeWriter from './TypeWriter';
 
 const scaleVariants = {
 	whileInView: {
@@ -35,8 +36,7 @@ const Header = () => {
 						</div>
 					</div>
 					<div className="tag-cmp app__flex">
-						<p className="p-text">Web Developer</p>
-						<p className="p-text">Freelancer</p>
+						<TypeWriter />
 					</div>
 				</div>
 			</motion.div>

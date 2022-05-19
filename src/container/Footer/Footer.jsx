@@ -140,21 +140,6 @@ const Footer = () => {
 							/>
 						)}
 					</div>
-					{/* <FormControl style={{ padding: '1rem 0 0 1rem' }}>
-						<FormLabel id="got-something-else-to-say">
-							Got more to say?
-						</FormLabel>
-						<RadioGroup
-							row
-							value={MoreToSay}
-							onChange={toggleMoreToSay}
-							aria-labelledby="got-something-else-to-say"
-							name="row-radio-buttons-group"
-						>
-							<FormControlLabel value={true} control={<Radio />} label="Yes" />
-							<FormControlLabel value={false} control={<Radio />} label="No" />
-						</RadioGroup>
-					</FormControl> */}
 
 					<AnimakitExpander expanded={moreToSay === 'true' ? true : false}>
 						<textarea

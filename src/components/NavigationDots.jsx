@@ -3,16 +3,12 @@ import { Tooltip } from '@mui/material';
 import React from 'react';
 import { capitalize } from '../utils/capitalize';
 
-const NavigationDots = ({ active }) => {
-	console.log(
-		'🚀 ~ file: NavigationDots.jsx ~ line 7 ~ NavigationDots ~ active',
-		active
-	);
+const NavigationDots = ({ active, idName }) => {
+	console.log(active === idName);
 	return (
 		<div className="app__navigation">
 			{['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map(
 				(item, index) => (
-					// eslint-disable-next-line jsx-a11y/anchor-has-content
 					<Tooltip title={capitalize(item)} placement="left">
 						<a
 							href={`#${item}`}

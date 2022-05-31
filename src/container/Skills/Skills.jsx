@@ -50,14 +50,14 @@ const Skills = () => {
 					{experiences.map((experience) => (
 						<motion.div
 							className="app__skills-exp-item"
-							key={`${experience.year}-${Math.random()}`}
+							key={`${experience.type}-${Math.random()}`}
 						>
 							<div className="app__skills-exp-year">
-								<p className="bold-text">{experience.year}</p>
+								<p className="bold-text">{experience.type}</p>
 							</div>
 							<motion.div
 								className="app__skills-exp-works"
-								key={`${experience.year}-${Math.random()}`}
+								key={`${experience.type}-${Math.random()}`}
 							>
 								{experience.works.map((work) => (
 									<>

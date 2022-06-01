@@ -5,14 +5,23 @@ import ReactTooltip from 'react-tooltip';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import './Skills.scss';
+import ReactiveButton from 'reactive-button';
 
 const Skills = () => {
 	const [experiences, setExperiences] = useState([]);
 	const [skills, setSkills] = useState([]);
+	const [cv, setCv] = useState([]);
+	console.log('🚀 ~ file: Skills.jsx ~ line 13 ~ Skills ~ cv', cv);
 
 	useEffect(() => {
 		const query = '*[_type == "experiences"]';
 		const skillsQuery = '*[_type == "skills"]';
+		const fileQuery = `*[_type == 'files'] {
+			title,
+			
+			cv,
+			"cvURL": cv.asset->url
+		  }`;
 
 		client.fetch(query).then((data) => {
 			setExperiences(data);
@@ -20,6 +29,9 @@ const Skills = () => {
 
 		client.fetch(skillsQuery).then((data) => {
 			setSkills(data);
+		});
+		client.fetch(fileQuery).then((data) => {
+			setCv(data);
 		});
 	}, []);
 
@@ -86,6 +98,28 @@ const Skills = () => {
 							</motion.div>
 						</motion.div>
 					))}
+					<a download href={cv[0]?.cvURL}>
+						<ReactiveButton
+							// className="p-text"
+
+							idleText={'Link to CV'}
+							loadingText={'Linking...'}
+							successText={'Success'}
+							errorText={'Error'}
+							type={'button'}
+							className={'p-text'}
+							style={{
+								borderRadius: '10px',
+								padding: '1rem 2rem ',
+								color: 'whitesmoke',
+							}}
+							outline={false}
+							shadow={true}
+							rounded={false}
+							size={'small'}
+							animation={true}
+						/>
+					</a>
 				</div>
 			</div>
 		</>

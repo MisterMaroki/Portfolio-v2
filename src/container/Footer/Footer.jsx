@@ -168,7 +168,10 @@ const Footer = () => {
 						errorText={'Error'}
 						type={'button'}
 						className={'p-text'}
-						style={{ borderRadius: '10px', padding: '1rem 2rem ' }}
+						style={{
+							borderRadius: '10px',
+							padding: '1rem 2rem ',
+						}}
 						outline={false}
 						shadow={true}
 						rounded={false}

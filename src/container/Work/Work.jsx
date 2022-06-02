@@ -112,11 +112,12 @@ const Work = () => {
 
 							<div className="app__work-tag app__flex">
 								<p className="p-text">
-									{work.tags
-										.toString()
+									{work.tags &&
+										work.tags
+											?.toString()
 
-										.split(',')
-										.join(' ')}
+											.split(',')
+											.join(' ')}
 								</p>
 							</div>
 						</div>

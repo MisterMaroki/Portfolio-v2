@@ -16,8 +16,10 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    word-break: keep-all;
 }
 
 html {
+    scroll-padding-top: 5vh;
     /* scroll-snap-type: y proximity */
 }

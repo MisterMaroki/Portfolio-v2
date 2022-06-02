@@ -18,6 +18,7 @@ import redux from '../assets/redux.webp';
 import sass from '../assets/sass.webp';
 import typescript from '../assets/typescript.webp';
 import vue from '../assets/vue.webp';
+import firebase from '../assets/firebase.webp';
 
 import about01 from '../assets/about01.webp';
 import about02 from '../assets/about02.webp';
@@ -43,6 +44,7 @@ export default {
 	email,
 	mobile,
 	api,
+	firebase,
 	cpp,
 	logo192,
 	css,

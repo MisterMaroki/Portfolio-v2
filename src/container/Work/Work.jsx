@@ -38,32 +38,25 @@ const Work = () => {
 	return (
 		<>
 			<h2 className="head-text">
-				My Creative <span>Portfolio </span>
+				My Latest <span>& Greatest </span>
 				<br />
 				Section
 			</h2>
 
 			<div className="app__work-filter">
-				{[
-					'Sanity',
-					'Firebase',
-					'APIs',
-					'React',
-					'Next',
-					'Websockets',
-					'Downloadable',
-					'All',
-				].map((item, index) => (
-					<div
-						key={index}
-						onClick={() => handleWorkFilter(item)}
-						className={`app__work-filter-item app__flex p-text ${
-							activeFilter === item ? 'item-active' : ''
-						}`}
-					>
-						{item}
-					</div>
-				))}
+				{['Firebase', 'React', 'Next', 'Downloadable', 'All'].map(
+					(item, index) => (
+						<div
+							key={index}
+							onClick={() => handleWorkFilter(item)}
+							className={`app__work-filter-item app__flex p-text ${
+								activeFilter === item ? 'item-active' : ''
+							}`}
+						>
+							{item}
+						</div>
+					)
+				)}
 			</div>
 			<motion.div
 				className="app__work-portfolio"

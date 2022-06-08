@@ -24,7 +24,7 @@ const WorkCard = ({ work, index }) => {
 					{work.imgUrl && <img src={urlFor(work.imgUrl)} alt={work.name} />}
 
 					<motion.div
-						whileHover={{ opacity: [0, 1] }}
+						whileHover={{ opacity: open ? 1 : [0, 1] }}
 						transition={{
 							duration: 0.25,
 							ease: 'easeInOut',

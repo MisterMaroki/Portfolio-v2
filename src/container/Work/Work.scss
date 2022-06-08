@@ -78,9 +78,10 @@
 		max-width: 900px;
 		height: 60vh !important;
 		z-index: 999;
-		backdrop-filter: blur(5px) drop-shadow(4px 4px 10px rgba(0, 0, 255, 0.538));
-		background: rgba(245, 245, 245, 0.876) !important;
+		backdrop-filter: blur(15px) drop-shadow(4px 4px 10px rgba(0, 0, 255, 0.538));
+		background: rgba(245, 245, 245, 0.836) !important;
 		flex-direction: row;
+
 		.app__work-img {
 			height: auto !important;
 			img {
@@ -101,6 +102,20 @@
 				color: var(--secondary-color) !important;
 			}
 			margin: 0.5rem 1rem;
+		}
+		@media (max-width: 767px) {
+			flex-direction: column;
+			height: 70vh !important;
+			top: 15vh;
+			.svg-container {
+				position: relative;
+				order: -1;
+				align-self: flex-end;
+				margin: -2.2rem -1.5rem 1.5rem 0;
+			}
+			.app__work-hover {
+				opacity: 1 !important;
+			}
 		}
 	}
 }

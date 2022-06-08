@@ -106,12 +106,20 @@
 		@media (max-width: 767px) {
 			flex-direction: column;
 			height: 70vh !important;
-			top: 15vh;
+			top: 0;
+			bottom: 0;
+			margin-top: auto;
+			margin-bottom: auto;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			width: 100px;
 			.svg-container {
 				position: relative;
 				order: -1;
 				align-self: flex-end;
-				margin: -2.2rem -1.5rem 1.5rem 0;
+				margin: -1.5rem -1.5rem 1.5rem 0;
 			}
 			.app__work-hover {
 				opacity: 1 !important;

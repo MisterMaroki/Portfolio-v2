@@ -14,7 +14,6 @@ const WorkCard = ({ work, index }) => {
 	return (
 		<>
 			<motion.div
-				layout="position"
 				transition={{ layout: { duration: 0.25, type: 'easeInOut' } }}
 				className={`app__work-item app__flex ${open && 'expand'}`}
 				key={index}

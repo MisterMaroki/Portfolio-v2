@@ -108,18 +108,14 @@
 			height: 70vh !important;
 			top: 0;
 			bottom: 0;
-			margin-top: auto;
-			margin-bottom: auto;
 			left: 0;
 			right: 0;
-			margin-left: auto;
-			margin-right: auto;
-			width: 100px;
+			margin: auto;
 			.svg-container {
 				position: relative;
 				order: -1;
 				align-self: flex-end;
-				margin: -1.5rem -1.5rem 1.5rem 0;
+				margin: 0rem -1.5rem 1.5rem 0;
 			}
 			.app__work-hover {
 				opacity: 1 !important;

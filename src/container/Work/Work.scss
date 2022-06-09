@@ -105,7 +105,7 @@
 		}
 		@media (max-width: 767px) {
 			flex-direction: column;
-			height: min-content !important;
+			height: max-content !important;
 			width: 80vw !important;
 			max-width: max-content !important;
 			top: 0;

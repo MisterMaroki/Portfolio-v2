@@ -90,7 +90,7 @@
 		}
 		.app__work-content {
 			align-self: flex-start;
-			margin-top: 0.25rem;
+			margin-top: 4rem;
 			padding: 1rem 2rem 2rem 3rem;
 		}
 		.svg-container {
@@ -121,6 +121,9 @@
 			}
 			.app__work-hover {
 				opacity: 1 !important;
+			}
+			.app__work-content {
+				margin-top: 0;
 			}
 		}
 	}

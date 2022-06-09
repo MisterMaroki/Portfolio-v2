@@ -6,6 +6,7 @@ import { HiX } from 'react-icons/hi';
 import { fontSize } from '@mui/system';
 import { IconButton } from '@mui/material';
 const WorkCard = ({ work, index }) => {
+	console.log('🚀 ~ file: WorkCard.jsx ~ line 9 ~ WorkCard ~ work', work);
 	const [open, setOpen] = useState(false);
 	console.log('🚀 ~ file: WorkCard.jsx ~ line 7 ~ WorkCard ~ open', open);
 	document
@@ -60,9 +61,41 @@ const WorkCard = ({ work, index }) => {
 				<motion.div className="app__work-content app__flex">
 					<motion.h4 className="bold-text">{work.title}</motion.h4>
 					{open && (
-						<motion.p className="p-text" style={{ marginTop: 10 }}>
-							{work.description}
-						</motion.p>
+						<>
+							<motion.p className="p-text" style={{ marginTop: 10 }}>
+								{work.description}
+							</motion.p>
+							<div className="app__works">
+								<motion.h6
+									className="bold-text"
+									style={{ margin: 10, alignSelf: 'flex-start' }}
+								>
+									Challenges
+								</motion.h6>
+								{work.challenges.map((x) => (
+									<motion.p
+										className="p-text"
+										style={{ margin: 10, alignSelf: 'flex-start' }}
+									>
+										-{x}
+									</motion.p>
+								))}
+								<motion.h6
+									className="bold-text"
+									style={{ margin: 10, alignSelf: 'flex-start' }}
+								>
+									Features
+								</motion.h6>
+								{work.features.map((x) => (
+									<motion.p
+										className="p-text"
+										style={{ margin: 10, alignSelf: 'flex-start' }}
+									>
+										-{x}
+									</motion.p>
+								))}
+							</div>
+						</>
 					)}
 
 					<motion.div className="app__work-tag app__flex">

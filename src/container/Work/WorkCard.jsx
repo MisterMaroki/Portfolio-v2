@@ -1,14 +1,11 @@
+import { IconButton } from '@mui/material';
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
-import { motion } from 'framer-motion';
-import { urlFor } from '../../client';
 import { HiX } from 'react-icons/hi';
-import { fontSize } from '@mui/system';
-import { IconButton } from '@mui/material';
+import { urlFor } from '../../client';
 const WorkCard = ({ work, index }) => {
-	console.log('🚀 ~ file: WorkCard.jsx ~ line 9 ~ WorkCard ~ work', work);
 	const [open, setOpen] = useState(false);
-	console.log('🚀 ~ file: WorkCard.jsx ~ line 7 ~ WorkCard ~ open', open);
 	document
 		.getElementById('home')
 		.addEventListener('click', () => setOpen(false));

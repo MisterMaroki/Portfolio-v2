@@ -11,7 +11,6 @@ const Skills = () => {
 	const [experiences, setExperiences] = useState([]);
 	const [skills, setSkills] = useState([]);
 	const [cv, setCv] = useState([]);
-	console.log('🚀 ~ file: Skills.jsx ~ line 13 ~ Skills ~ cv', cv);
 
 	useEffect(() => {
 		const query = '*[_type == "experiences"]';
@@ -71,8 +70,17 @@ const Skills = () => {
 								className="app__skills-exp-works"
 								key={`${experience.type}-${Math.random()}`}
 							>
-								{experience.works.map((work) => (
-									<>
+								{experience.works.map((work, index) => (
+									<div id="work-outer">
+										<ReactTooltip
+											id={work.name}
+											effect="solid"
+											arrowColor="#fff"
+											className="skills-tooltip"
+											key={work.desc}
+										>
+											{work.desc}
+										</ReactTooltip>
 										<motion.div
 											whileInView={{ opacity: [0, 1] }}
 											transition={{ duration: 0.5 }}
@@ -84,16 +92,24 @@ const Skills = () => {
 											<h4 className="bold-text">{work.name}</h4>
 											<p className="p-text">{work.company}</p>
 										</motion.div>
-										<ReactTooltip
-											id={work.name}
-											effect="solid"
-											arrowColor="#fff"
-											className="skills-tooltip"
-											key={work.desc}
-										>
-											{work.desc}
-										</ReactTooltip>
-									</>
+										{index === 0 && (
+											<motion.div
+												className="pointer"
+												transition={{
+													duration: 1.5,
+													repeat: Infinity,
+													repeatType: 'reverse',
+													type: 'spring',
+												}}
+												whileInView={{
+													opacity: [0.5, 0.8],
+													// width: [30, 60],
+													// height: [30, 60],
+													scale: [0.5, 1],
+												}}
+											/>
+										)}
+									</div>
 								))}
 							</motion.div>
 						</motion.div>

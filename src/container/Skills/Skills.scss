@@ -9,6 +9,7 @@
 	margin-top: 3rem;
 	display: flex;
 	flex-direction: row;
+	position: relative;
 
 	@media screen and (max-width: 900px) {
 		width: 100%;
@@ -104,7 +105,7 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
-		margin-bottom: 1rem;
+		padding-bottom: 1rem;
 		cursor: pointer;
 
 		h4 {
@@ -116,6 +117,24 @@
 			color: var(--gray-color);
 			margin-top: 5px;
 		}
+	}
+}
+div#work-outer {
+	border: 2px solid #a8a8a82f;
+	border-radius: 10px;
+	padding: 0.5rem;
+	padding-bottom: 0;
+	margin-top: 0.5rem;
+	position: relative;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		cursor: pointer;
+		//purple border with a glow effect on hover
+		border: 2px solid #a8a8a86f;
+		box-shadow: 0 0 25px #5b7cffb0;
+	}
+	@media screen and (max-width: 900px) {
+		margin-right: 3rem;
 	}
 }
 
@@ -152,5 +171,20 @@
 		font-size: 1.75rem !important;
 		max-width: 500px !important;
 		line-height: 2 !important;
+	}
+}
+
+.pointer {
+	background-color: rgba(0, 0, 0, 0.1254901961);
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	position: absolute;
+	top: 35%;
+	left: 55%;
+	z-index: 10;
+	@media screen and (min-width: 900px) {
+		top: 54%;
+		left: 75%;
 	}
 }

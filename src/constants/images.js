@@ -39,10 +39,12 @@ import bolt from '../assets/bolt.webp';
 import nb from '../assets/nb.webp';
 import skype from '../assets/skype.webp';
 import spotify from '../assets/spotify.webp';
+import ts from '../assets/ts-logo-128.webp';
 
 export default {
 	email,
 	mobile,
+	ts,
 	api,
 	firebase,
 	cpp,
